@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<p id="date"></p>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<form action="/CryptoGraph/marketdepth" method="get">
+Pair:<input type="text" name="pair"><br>
+Stock:<input type="text" name="stock"><br>
+Select date:<br>
+<input type="date" name="date">
+<input type="submit" value="OK">
+</form>
+
+<script>
+$.getJSON('/CryptoGraph/getDepth

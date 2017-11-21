@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+
+  <servlet>
+      <servlet-name>OhlcServlet</servlet-name>
+      <servlet-class>servlets.OhlcServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OhlcServlet</servlet-name>
+    <url-pattern>/getOhlc/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>DepthServlet</servlet-name>
+      <servlet-class>servlets.DepthServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DepthServlet</servlet-name>
+    <url-pattern>/getDepth/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>ControlPanelServlet</servlet-name>
+      <servlet-class>servlets.ControlPanelServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControlPanelServlet</servlet-name>
+    <url-pattern>/controlpanel/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>DepthGraphServlet</servlet-name>
+      <servlet-class>servlets.DepthGraphServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DepthGraphServlet</servlet-name>
+    <url-pattern>/marketdepth/*</url-pattern>
+  </servlet-mapping>
+</web-app>

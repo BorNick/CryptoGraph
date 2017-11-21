@@ -1,0 +1,83 @@
+', function (data) {
+	document.getElementById('date').innerHTML = data[0];
+    var asks = [],
+        bids = [],
+		start = data[1],
+        dataLength = data[2].length,
+
+        i = 0;
+
+    for (i; i < dataLength; i += 1) {
+        asks.push([
+            data[2][i]
+        ]);
+
+        bids.push([
+            data[3][i]
+        ]);
+    }
+
+
+    // create the chart
+    Highcharts.chart('container', {
+        chart: {
+            type: 'area'
+        },
+        title: {
+            text: 'Market Depth graph'
+        },
+        xAxis: {
+			title: {
+                text: 'Price'
+            },
+            allowDecimals: true,
+            labels: {
+                formatter: function () {
+                    return this.value; // clean, unformatted number for year
+                }
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Volume'
+            },
+            labels: {
+                formatter: function () {
+                    return this.value;// / 1000 + 'k';
+                }
+            }
+        },
+        tooltip: {
+            pointFormat: 'Price: <b>{point.x:,.3f}</b><br/>Volume: {point.y:,.3f}'
+        },
+        plotOptions: {
+            area: {
+                pointStart: start,
+                marker: {
+                    enabled: false,
+                    symbol: 'circle',
+                    radius: 2,
+					
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                }
+            },
+			series: {
+			pointInterval: 10
+			}
+        },
+        series: [{
+            name: 'asks',
+            data: asks
+        }, {
+            name: 'bids',
+            data: bids
+        }]
+    });
+});
+</script>
+</body>
+</html>
